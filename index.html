@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>jQuery AnchorScroll</title>
     <link rel="stylesheet" href="./style.css" />
@@ -161,12 +161,15 @@
 
   &lt/section&gt
             </code></pre>
-            <ul>
-              <li><span class="u-fb">data-speed</span> 設定したセクションのみ、スクロールスピードを変更します。</li>
-              <li><span class="u-fb">data-easing</span> 設定したセクションのみ、イージングを変更します。</li>
-              <li><span class="u-fb">data-offset</span> 設定したセクションのみ、要素のスクロール位置をずらします。</li>
-              <li><span class="u-fb">data-center</span> 設定したセクションのみ、センターモードを変更します。</li>
-            </ul>
+            <section>
+              <h3>オプション</h3>
+              <ul>
+                <li><span class="u-fb">data-speed</span> 設定したセクションのみ、スクロールスピードを変更します。</li>
+                <li><span class="u-fb">data-easing</span> 設定したセクションのみ、イージングを変更します。</li>
+                <li><span class="u-fb">data-offset</span> 設定したセクションのみ、要素のスクロール位置をずらします。</li>
+                <li><span class="u-fb">data-center</span> 設定したセクションのみ、センターモードを変更します。</li>
+              </ul>
+            </section>
 
           </section>
         </div>
@@ -228,6 +231,8 @@
     }
   });
                       </code></pre>
+                      <p>scrollStartイベントを応用することで、ウインドウズサイズ毎に設定を変更することが可能です。</p>
+
                   </section>
               </section>
 
@@ -249,5 +254,8 @@
         </div>
       </section>
     </main>
+    <footer>
+      <small>Copyright © 2020 YOSHIKI inc. All Rights Reserved.</small>
+    </footer>
   </body>
 </html>
