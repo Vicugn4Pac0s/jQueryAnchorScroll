@@ -61,6 +61,7 @@
         var href = $(this).attr("href"),
           _target = $(href == "#" || href === "" ? "html" : href);
         self.toScroll(_target);
+        return false;
       });
       $(window).on("load", function () {
         var urlHash = location.hash;
