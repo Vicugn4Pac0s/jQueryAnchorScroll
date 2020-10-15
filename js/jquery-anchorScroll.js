@@ -94,6 +94,10 @@
       var self = this,
         _settings = $.extend({}, this.settings, $(target).data()); //data-〇〇にセットされていれば優先
 
+      if (!target.length) {
+        return false;
+      }
+
       self.Observer.trigger("scrollStart", {
         target: target,
         settings: _settings,
