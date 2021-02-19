@@ -42,6 +42,30 @@
     },
   };
 
+  //ScrollControl
+  function ScrollControl() {
+    this.initialize();
+  }
+  ScrollControl.prototype = {
+    initialize: function() {
+      this.isScroll = 0;
+    },
+    noScroll: function(event) {
+      event.preventDefault();
+    },
+    scrollReturn: function () {
+      document.removeEventListener("wheel", this.noScroll, { passive: false });
+      document.removeEventListener("touchmove", this.noScroll, { passive: false });
+      this.isScroll = 1;
+    },
+    scrollStop: function () {
+      document.addEventListener("wheel", this.noScroll, { passive: false });
+      document.addEventListener("touchmove", this.noScroll, { passive: false });
+      this.isScroll = 0;
+      scrollTo(0, 0);
+    },
+  }
+
   function AnchorScroll(options) {
     this.initialize(options);
   }
@@ -56,6 +80,7 @@
       };
       this.settings = $.extend({}, defaults, options);
       this.Observer = new Observer();
+      this.SC = new ScrollControl();
 
       this.handleEvents();
     },
@@ -106,6 +131,8 @@
       var position = this.getPosition(target, _settings),
         callback = 0;
 
+      self.SC.scrollStop();
+
       $("body, html").animate(
         { scrollTop: position },
         _settings.speed,
@@ -115,6 +142,7 @@
             self.Observer.trigger("scrollEnd", {
               target: target,
             });
+            self.SC.scrollReturn();
             callback = 1;
           }
         }
